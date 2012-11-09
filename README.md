@@ -34,41 +34,31 @@ Requirements:
 
 Setup:
 
-1. Create a Content Type for the DPLA content you would like to pull in (admin/content/types/add)
-2. Create DPLA metadata fields for the Content Type (admin/content/node-type/YOURCONTENTYPE/fields)
-  
-  * title
-  * description
-  * creator
-  * type
-  * publisher
-  * format
-  * rights
-  * contributor
-  * created
-  * spatial
-  * temporal
-  * source
-
-4. Create a new feed importer (admin/build/feeds/create)
-5. Configure the settings for you new feed importer
-  
+* Create a Content Type for the DPLA content you would like to pull in (admin/content/types/add) ![CCK Content Type](http://i.imgur.com/Eh1ae.png) 
+* Create DPLA metadata fields for the Content Type (admin/content/node-type/YOURCONTENTYPE/fields) ![CCK DPLA Field Types](http://i.imgur.com/TK2Pu.png) 
+* Create a new feed importer (admin/build/feeds/create)
+* Configure the settings for you new feed importer
   * Basic settings:
     * Select the Content Type you would like to import into
-    * Select a fequency you would like Feeds to ingest
+    * Select a fequency you would like Feeds to ingest ![Feeds Import - Basic Settings](http://i.imgur.com/wfC3l.png)
   * Fetcher
     * HTTP Fetcher
+  * Processor
+    * Node processor
+    * Select the Content Type you created
+    * Mappings (create a mapping for each metadata field you created)
+      * Source : jsonpath_parser:0
+      * Target : Title ![Feeds Import - Processor(http://i.imgur.com/PZTDP.png)
   * Parser
     * JSONPath Parser
     * Settings for JSONPath parser
-      * Context: `$.count.docs.*`
-  * Processor
-    * Node processor
-    * Mappings
-      * Source : jsonpath_parser:0
-      * Target : Title
-6. Construct a search you would like to ingest using the [DPLA API](https://github.com/dpla/platform/wiki)
-
+      * Context: `$.docs.*` ![Feeds Import - JSONPath](http://i.imgur.com/xsfHJ.png)
+* Construct a search you would like to ingest using the [DPLA API](https://github.com/dpla/platform/wiki)
   * ex:  `http://api.dp.la/v1/items?dplaContributor=%22Minnesota%20Digital%20Library%22`
-
-7. Boop!
+* Start the import! (node/add/YOURCONTENTTYPE)
+* Give the import a title... whatever your heart desires.
+* Add a feed url
+* Click on JSONPath Parser settings, and start adding all of the JSONPaths ![Node/Feed add](http://i.imgur.com/WCzzd.png)
+* Click save, and watch the import go. ![Import success](http://i.imgur.com/mjNEe.png)
+* Check out your results 
+![Record](http://i.imgur.com/6AuEH.png)
