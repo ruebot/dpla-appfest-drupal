@@ -52,7 +52,7 @@ Setup:
     * Select the Content Type you created
     * Mappings (create a mapping for each metadata field you created)
       * Source : jsonpath_parser:0
-      * Target : Title ![Feeds Import - Processor(http://i.imgur.com/PZTDP.png)
+      * Target : Title ![Feeds Import - Processor](http://i.imgur.com/PZTDP.png)
   * Parser
     * JSONPath Parser
     * Settings for JSONPath parser
