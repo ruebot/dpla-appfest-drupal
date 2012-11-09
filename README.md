@@ -15,7 +15,9 @@ Description of App: Many. many libraries choose to use Drupal as their content m
 Workflow
 ---
 
-(It would be really nice if DPLA had a OAI-PMH provider, then you could just use CCK + Feeds + [Feeds OAI-PMH](http://drupal.org/project/feeds_oai_pmh))
+Preamble:
+
+I don't like recreating the wheel. So, let's see what contrib modules already exist, and see if we can just create a workflow to do this to start with. It would be really nice if DPLA had a OAI-PMH provider, then you could just use CCK + Feeds + [Feeds OAI-PMH](http://drupal.org/project/feeds_oai_pmh).
 
 Requirements:
 
